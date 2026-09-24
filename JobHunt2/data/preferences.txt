@@ -1,0 +1,4 @@
+Target Roles: Senior Python Developer, Backend Engineer, Staff Software Engineer
+Preferred Location: Remote or New York
+Minimum Salary: $110,000
+Disqualifiers: Requires relocation to West Coast, mostly front-end work (React/Vue).

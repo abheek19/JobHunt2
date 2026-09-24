@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Hunt Department</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel">
+            <div class="logo">
+                <span class="icon">🤖</span>
+                <h1>JobDept</h1>
+            </div>
+            <nav>
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">Settings</a>
+            </nav>
+            <div class="actions">
+                <input type="file" id="cv-upload-input" style="display: none;" accept=".txt,.pdf,.docx">
+                <button id="upload-cv-btn" class="btn-secondary">
+                    <span class="btn-icon">📄</span> Upload CV
+                </button>
+                <button id="run-pipeline-btn" class="btn-primary" style="margin-top: 10px;">
+                    <span class="btn-icon">⚡</span> Run Pipeline
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <header>
+                <h2>Pipeline Overview</h2>
+                
+                <div id="active-cvs-container" style="background: rgba(255, 255, 255, 0.05); padding: 15px 20px; border-radius: 12px; margin-bottom: 20px; display: none;">
+                    <h3 style="margin: 0 0 10px 0; font-size: 1rem; color: #9ca3af;">Active Resumes (Jobs being matched to these)</h3>
+                    <div id="active-cvs-list" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <!-- CV badges will go here -->
+                    </div>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-card glass-panel">
+                        <span class="label">Total Discovered</span>
+                        <span class="value" id="stat-total">0</span>
+                    </div>
+                    <div class="stat-card glass-panel">
+                        <span class="label">High Matches</span>
+                        <span class="value" id="stat-high">0</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Kanban Board -->
+            <div class="kanban-board">
+                <!-- Discovered Column -->
+                <div class="column glass-panel">
+                    <h3>Discovered</h3>
+                    <div class="job-list" id="col-discovered"></div>
+                </div>
+
+                <!-- Screened Column -->
+                <div class="column glass-panel">
+                    <h3>Screened (Possible/Reject)</h3>
+                    <div class="job-list" id="col-screened"></div>
+                </div>
+
+                <!-- High Match Column -->
+                <div class="column glass-panel">
+                    <h3>High Match</h3>
+                    <div class="job-list" id="col-highmatch"></div>
+                </div>
+
+                <!-- Ready Column -->
+                <div class="column glass-panel">
+                    <h3>Ready for Approval</h3>
+                    <div class="job-list" id="col-ready"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for viewing drafts -->
+    <div class="modal-overlay" id="draft-modal">
+        <div class="modal-content glass-panel">
+            <header>
+                <h3 id="modal-title">Job Details</h3>
+                <button class="close-btn" id="close-modal">&times;</button>
+            </header>
+            <div class="modal-body">
+                <pre id="modal-draft-content">Loading...</pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
