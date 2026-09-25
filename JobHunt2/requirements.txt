@@ -5,3 +5,6 @@ twilio
 python-dotenv
 beautifulsoup4
 requests
+fastapi
+uvicorn
+python-multipart
